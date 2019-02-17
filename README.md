@@ -45,3 +45,8 @@ mvn clean package nutzboot:shade
 3. 在生成的`handler`中填写业务逻辑
 4. 运行`com.onemena.game.MainLauncher`中的主方法启动服务端
 5. 运行`com.onemena.game.client.ClientServer`中的主方法启动客户端循环发送数据
+
+
+## 源自Netty+protobuf3
+
+https://github.com/nonpool/typedispatchdemo
