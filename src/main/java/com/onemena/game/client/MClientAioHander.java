@@ -5,21 +5,18 @@ import org.tio.core.ChannelContext;
 import org.tio.core.intf.Packet;
 
 import com.google.protobuf.MessageLite;
-import com.onemena.game.socket.handler.GameHandler;
-import com.onemena.game.socket.handler.MessagePacket;
+import com.onemena.game.socket.handler.AbstractProtoBufHandler;
 
-public class MClientAioHander extends GameHandler implements ClientAioHandler {
-
-	@Override
-	public void handler(Packet packet, ChannelContext channelContext) throws Exception {
-		//MessageLite messageLite = ((MessagePacket) packet).getMessageLite();
-		//System.err.println("Client ... " + messageLite);
-		// Tio.send(channelContext, packet);
-	}
+public class MClientAioHander extends AbstractProtoBufHandler implements ClientAioHandler {
 
 	@Override
 	public Packet heartbeatPacket() {
 		return null;// new ClientPacket();
+	}
+
+	@Override
+	public void doHandler(MessageLite packet, ChannelContext channelContext) throws Exception {
+
 	}
 
 }

@@ -4,8 +4,6 @@ import org.tio.client.intf.ClientAioListener;
 import org.tio.core.ChannelContext;
 import org.tio.core.intf.Packet;
 
-import com.onemena.game.socket.handler.MessagePacket;
-
 public class MClientAioListener implements ClientAioListener {
 
 	@Override
@@ -15,7 +13,7 @@ public class MClientAioListener implements ClientAioListener {
 
 	@Override
 	public void onAfterDecoded(ChannelContext channelContext, Packet packet, int packetSize) throws Exception {
-		System.err.println("Client ..." + ((MessagePacket)packet).getMessageLite());
+
 	}
 
 	@Override
