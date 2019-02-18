@@ -5,13 +5,16 @@ import org.tio.core.ChannelContext;
 import org.tio.core.intf.Packet;
 
 import com.google.protobuf.MessageLite;
+import com.onemena.game.proto.HeartBeatMessage;
 import com.onemena.game.socket.handler.AbstractProtoBufHandler;
+import com.onemena.game.socket.handler.MessagePacket;
 
 public class MClientAioHander extends AbstractProtoBufHandler implements ClientAioHandler {
 
 	@Override
 	public Packet heartbeatPacket() {
-		return null;// new ClientPacket();
+		HeartBeatMessage backMsg = HeartBeatMessage.newBuilder().setMessage("ping").build();
+		return new MessagePacket(backMsg);
 	}
 
 	@Override

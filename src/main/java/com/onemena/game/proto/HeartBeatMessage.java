@@ -4,20 +4,19 @@
 package com.onemena.game.proto;
 
 /**
- * Protobuf type {@code LoginMessage}
+ * Protobuf type {@code HeartBeatMessage}
  */
-public  final class LoginMessage extends
+public  final class HeartBeatMessage extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:LoginMessage)
-    LoginMessageOrBuilder {
+    // @@protoc_insertion_point(message_implements:HeartBeatMessage)
+    HeartBeatMessageOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use LoginMessage.newBuilder() to construct.
-  private LoginMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use HeartBeatMessage.newBuilder() to construct.
+  private HeartBeatMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private LoginMessage() {
-    name_ = "";
-    password_ = "";
+  private HeartBeatMessage() {
+    message_ = "";
   }
 
   @java.lang.Override
@@ -25,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LoginMessage(
+  private HeartBeatMessage(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -47,13 +46,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            password_ = s;
+            message_ = s;
             break;
           }
           default: {
@@ -77,79 +70,45 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.onemena.game.proto.Messages.internal_static_LoginMessage_descriptor;
+    return com.onemena.game.proto.Messages.internal_static_HeartBeatMessage_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.onemena.game.proto.Messages.internal_static_LoginMessage_fieldAccessorTable
+    return com.onemena.game.proto.Messages.internal_static_HeartBeatMessage_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.onemena.game.proto.LoginMessage.class, com.onemena.game.proto.LoginMessage.Builder.class);
+            com.onemena.game.proto.HeartBeatMessage.class, com.onemena.game.proto.HeartBeatMessage.Builder.class);
   }
 
-  public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  public static final int MESSAGE_FIELD_NUMBER = 1;
+  private volatile java.lang.Object message_;
   /**
-   * <code>string name = 1;</code>
+   * <code>string message = 1;</code>
    */
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
+  public java.lang.String getMessage() {
+    java.lang.Object ref = message_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      name_ = s;
+      message_ = s;
       return s;
     }
   }
   /**
-   * <code>string name = 1;</code>
+   * <code>string message = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
+      getMessageBytes() {
+    java.lang.Object ref = message_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      name_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PASSWORD_FIELD_NUMBER = 2;
-  private volatile java.lang.Object password_;
-  /**
-   * <code>string password = 2;</code>
-   */
-  public java.lang.String getPassword() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      password_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string password = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getPasswordBytes() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      password_ = b;
+      message_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -170,11 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-    }
-    if (!getPasswordBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
+    if (!getMessageBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
     }
     unknownFields.writeTo(output);
   }
@@ -185,11 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-    }
-    if (!getPasswordBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
+    if (!getMessageBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -201,16 +154,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.onemena.game.proto.LoginMessage)) {
+    if (!(obj instanceof com.onemena.game.proto.HeartBeatMessage)) {
       return super.equals(obj);
     }
-    com.onemena.game.proto.LoginMessage other = (com.onemena.game.proto.LoginMessage) obj;
+    com.onemena.game.proto.HeartBeatMessage other = (com.onemena.game.proto.HeartBeatMessage) obj;
 
     boolean result = true;
-    result = result && getName()
-        .equals(other.getName());
-    result = result && getPassword()
-        .equals(other.getPassword());
+    result = result && getMessage()
+        .equals(other.getMessage());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -222,78 +173,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-    hash = (53 * hash) + getPassword().hashCode();
+    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.onemena.game.proto.LoginMessage parseFrom(
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.onemena.game.proto.LoginMessage parseFrom(
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.onemena.game.proto.LoginMessage parseFrom(
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.onemena.game.proto.LoginMessage parseFrom(
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.onemena.game.proto.LoginMessage parseFrom(byte[] data)
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.onemena.game.proto.LoginMessage parseFrom(
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.onemena.game.proto.LoginMessage parseFrom(java.io.InputStream input)
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.onemena.game.proto.LoginMessage parseFrom(
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.onemena.game.proto.LoginMessage parseDelimitedFrom(java.io.InputStream input)
+  public static com.onemena.game.proto.HeartBeatMessage parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.onemena.game.proto.LoginMessage parseDelimitedFrom(
+  public static com.onemena.game.proto.HeartBeatMessage parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.onemena.game.proto.LoginMessage parseFrom(
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.onemena.game.proto.LoginMessage parseFrom(
+  public static com.onemena.game.proto.HeartBeatMessage parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -306,7 +255,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.onemena.game.proto.LoginMessage prototype) {
+  public static Builder newBuilder(com.onemena.game.proto.HeartBeatMessage prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -322,26 +271,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code LoginMessage}
+   * Protobuf type {@code HeartBeatMessage}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:LoginMessage)
-      com.onemena.game.proto.LoginMessageOrBuilder {
+      // @@protoc_insertion_point(builder_implements:HeartBeatMessage)
+      com.onemena.game.proto.HeartBeatMessageOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.onemena.game.proto.Messages.internal_static_LoginMessage_descriptor;
+      return com.onemena.game.proto.Messages.internal_static_HeartBeatMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.onemena.game.proto.Messages.internal_static_LoginMessage_fieldAccessorTable
+      return com.onemena.game.proto.Messages.internal_static_HeartBeatMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.onemena.game.proto.LoginMessage.class, com.onemena.game.proto.LoginMessage.Builder.class);
+              com.onemena.game.proto.HeartBeatMessage.class, com.onemena.game.proto.HeartBeatMessage.Builder.class);
     }
 
-    // Construct using com.onemena.game.proto.LoginMessage.newBuilder()
+    // Construct using com.onemena.game.proto.HeartBeatMessage.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -359,9 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      name_ = "";
-
-      password_ = "";
+      message_ = "";
 
       return this;
     }
@@ -369,17 +316,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.onemena.game.proto.Messages.internal_static_LoginMessage_descriptor;
+      return com.onemena.game.proto.Messages.internal_static_HeartBeatMessage_descriptor;
     }
 
     @java.lang.Override
-    public com.onemena.game.proto.LoginMessage getDefaultInstanceForType() {
-      return com.onemena.game.proto.LoginMessage.getDefaultInstance();
+    public com.onemena.game.proto.HeartBeatMessage getDefaultInstanceForType() {
+      return com.onemena.game.proto.HeartBeatMessage.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.onemena.game.proto.LoginMessage build() {
-      com.onemena.game.proto.LoginMessage result = buildPartial();
+    public com.onemena.game.proto.HeartBeatMessage build() {
+      com.onemena.game.proto.HeartBeatMessage result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -387,10 +334,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.onemena.game.proto.LoginMessage buildPartial() {
-      com.onemena.game.proto.LoginMessage result = new com.onemena.game.proto.LoginMessage(this);
-      result.name_ = name_;
-      result.password_ = password_;
+    public com.onemena.game.proto.HeartBeatMessage buildPartial() {
+      com.onemena.game.proto.HeartBeatMessage result = new com.onemena.game.proto.HeartBeatMessage(this);
+      result.message_ = message_;
       onBuilt();
       return result;
     }
@@ -429,22 +375,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.onemena.game.proto.LoginMessage) {
-        return mergeFrom((com.onemena.game.proto.LoginMessage)other);
+      if (other instanceof com.onemena.game.proto.HeartBeatMessage) {
+        return mergeFrom((com.onemena.game.proto.HeartBeatMessage)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.onemena.game.proto.LoginMessage other) {
-      if (other == com.onemena.game.proto.LoginMessage.getDefaultInstance()) return this;
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
-        onChanged();
-      }
-      if (!other.getPassword().isEmpty()) {
-        password_ = other.password_;
+    public Builder mergeFrom(com.onemena.game.proto.HeartBeatMessage other) {
+      if (other == com.onemena.game.proto.HeartBeatMessage.getDefaultInstance()) return this;
+      if (!other.getMessage().isEmpty()) {
+        message_ = other.message_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -462,11 +404,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.onemena.game.proto.LoginMessage parsedMessage = null;
+      com.onemena.game.proto.HeartBeatMessage parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.onemena.game.proto.LoginMessage) e.getUnfinishedMessage();
+        parsedMessage = (com.onemena.game.proto.HeartBeatMessage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -476,140 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object name_ = "";
+    private java.lang.Object message_ = "";
     /**
-     * <code>string name = 1;</code>
+     * <code>string message = 1;</code>
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        message_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string message = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getMessageBytes() {
+      java.lang.Object ref = message_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        message_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string message = 1;</code>
      */
-    public Builder setName(
+    public Builder setMessage(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      name_ = value;
+      message_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string message = 1;</code>
      */
-    public Builder clearName() {
+    public Builder clearMessage() {
       
-      name_ = getDefaultInstance().getName();
+      message_ = getDefaultInstance().getMessage();
       onChanged();
       return this;
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string message = 1;</code>
      */
-    public Builder setNameBytes(
+    public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      name_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object password_ = "";
-    /**
-     * <code>string password = 2;</code>
-     */
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        password_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     */
-    public Builder setPassword(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      password_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string password = 2;</code>
-     */
-    public Builder clearPassword() {
-      
-      password_ = getDefaultInstance().getPassword();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string password = 2;</code>
-     */
-    public Builder setPasswordBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      password_ = value;
+      message_ = value;
       onChanged();
       return this;
     }
@@ -626,41 +499,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:LoginMessage)
+    // @@protoc_insertion_point(builder_scope:HeartBeatMessage)
   }
 
-  // @@protoc_insertion_point(class_scope:LoginMessage)
-  private static final com.onemena.game.proto.LoginMessage DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:HeartBeatMessage)
+  private static final com.onemena.game.proto.HeartBeatMessage DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.onemena.game.proto.LoginMessage();
+    DEFAULT_INSTANCE = new com.onemena.game.proto.HeartBeatMessage();
   }
 
-  public static com.onemena.game.proto.LoginMessage getDefaultInstance() {
+  public static com.onemena.game.proto.HeartBeatMessage getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<LoginMessage>
-      PARSER = new com.google.protobuf.AbstractParser<LoginMessage>() {
+  private static final com.google.protobuf.Parser<HeartBeatMessage>
+      PARSER = new com.google.protobuf.AbstractParser<HeartBeatMessage>() {
     @java.lang.Override
-    public LoginMessage parsePartialFrom(
+    public HeartBeatMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LoginMessage(input, extensionRegistry);
+      return new HeartBeatMessage(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<LoginMessage> parser() {
+  public static com.google.protobuf.Parser<HeartBeatMessage> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<LoginMessage> getParserForType() {
+  public com.google.protobuf.Parser<HeartBeatMessage> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.onemena.game.proto.LoginMessage getDefaultInstanceForType() {
+  public com.onemena.game.proto.HeartBeatMessage getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

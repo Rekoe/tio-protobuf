@@ -40,22 +40,21 @@ public class HandlerGenerator {
 		Map<String, String> dataModal = new HashMap<>();
 		String handlerFilePath = "src/main/java/" + packagePath.replace('.', '/') + "/";
 		List<Class<?>> classes = ClassUtil.getAllClassBySubClass(MessageLite.class, true, "com.onemena.game.proto");
-		classes.stream().filter(claz -> !Objects.equals(claz, Frame.class)) // 不包含Frame
-				.forEach(claz -> {
-					try {
-						dataModal.put("className", claz.getSimpleName());
-						dataModal.put("lowerClassName", Strings.lowerFirst(claz.getSimpleName()));
-						dataModal.put("packagePath", packagePath);
-						Template handlerTemplate = cfg.getTemplate("handler_template.ftl");
-						File file = new File(handlerFilePath + claz.getSimpleName() + "Handler.java");
-						if (override || !file.exists()) {
-							Writer out = new OutputStreamWriter(new FileOutputStream(file));
-							handlerTemplate.process(dataModal, out);
-						}
-					} catch (Exception e) {
-						throw new RuntimeException(e);
-					}
-				});
+		classes.stream().filter(claz -> !Objects.equals(claz, Frame.class)).forEach(claz -> {
+			try {
+				dataModal.put("className", claz.getSimpleName());
+				dataModal.put("lowerClassName", Strings.lowerFirst(claz.getSimpleName()));
+				dataModal.put("packagePath", packagePath);
+				Template handlerTemplate = cfg.getTemplate("handler_template.ftl");
+				File file = new File(handlerFilePath + claz.getSimpleName() + "Handler.java");
+				if (override || !file.exists()) {
+					Writer out = new OutputStreamWriter(new FileOutputStream(file));
+					handlerTemplate.process(dataModal, out);
+				}
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		});
 	}
 
 }

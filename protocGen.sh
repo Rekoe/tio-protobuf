@@ -1,1 +1,1 @@
-protoc --proto_path=proto  --java_out=src\main\java demo.proto
+protoc --proto_path=proto  --java_out=src/main/java messages.proto

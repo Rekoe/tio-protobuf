@@ -1,0 +1,19 @@
+syntax = "proto3";
+option java_package = "com.onemena.game.proto";
+option java_multiple_files = true;
+
+message Frame {
+    string messageType = 2;
+
+    bytes payload = 15;
+}
+
+message LoginMessage {
+    string name = 1;
+    
+    string password = 2;
+}
+
+message HeartBeatMessage {
+    string message=1;
+}
