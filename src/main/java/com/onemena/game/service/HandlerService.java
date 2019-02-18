@@ -33,7 +33,7 @@ public class HandlerService<T extends MessageLite> {
 
 	private final MessageBuffer<T> buffer = new InnerQueueBuffer<T>();
 
-	@Inject
+	@Inject("refer:$ioc")
 	private Ioc ioc;
 
 	private int THREAD_POOL_SIZE = 4;
