@@ -11,9 +11,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import org.nutz.lang.ContinueLoop;
+import org.nutz.lang.Each;
+import org.nutz.lang.ExitLoop;
+import org.nutz.lang.Lang;
+import org.nutz.lang.LoopException;
 import org.nutz.lang.Strings;
+import org.nutz.resource.Scans;
 
+import com.google.common.collect.Lists;
 import com.google.protobuf.MessageLite;
+import com.onemena.game.annotation.HandlerMapping;
 import com.onemena.game.proto.Frame;
 import com.onemena.game.utils.ClassUtil;
 
@@ -32,6 +40,16 @@ public class HandlerGenerator {
 	}
 
 	private void run(String packagePath, boolean override) throws Exception {
+		final List<Class<?>> handlers = Scans.me().scanPackage("com.onemena.game.custom.handler");
+		final List<String> handersFinish = Lists.newArrayList();
+		Lang.each(handlers, new Each<Class<?>>() {
+			@Override
+			public void invoke(int index, Class<?> cls, int length) throws ExitLoop, ContinueLoop, LoopException {
+				if (Lang.isNotEmpty(cls.getAnnotation(HandlerMapping.class))) {
+					handersFinish.add(cls.getName());
+				}
+			}
+		});
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
 		URL resource = HandlerGenerator.class.getResource("/handler_template.ftl");
 		cfg.setDirectoryForTemplateLoading(Paths.get(resource.toURI()).toFile().getParentFile());
@@ -45,16 +63,20 @@ public class HandlerGenerator {
 				dataModal.put("className", claz.getSimpleName());
 				dataModal.put("lowerClassName", Strings.lowerFirst(claz.getSimpleName()));
 				dataModal.put("packagePath", packagePath);
-				Template handlerTemplate = cfg.getTemplate("handler_template.ftl");
-				File file = new File(handlerFilePath + claz.getSimpleName() + "Handler.java");
-				if (override || !file.exists()) {
-					Writer out = new OutputStreamWriter(new FileOutputStream(file));
-					handlerTemplate.process(dataModal, out);
+				String clzz = dataModal.get("packagePath") + "." + dataModal.get("className") + "Handler";
+				if (handersFinish.contains(clzz)) {
+					System.out.println("========" + true);
+				} else {
+					Template handlerTemplate = cfg.getTemplate("handler_template.ftl");
+					File file = new File(handlerFilePath + claz.getSimpleName() + "Handler.java");
+					if (override || !file.exists()) {
+						Writer out = new OutputStreamWriter(new FileOutputStream(file));
+						handlerTemplate.process(dataModal, out);
+					}
 				}
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
 		});
 	}
-
 }
