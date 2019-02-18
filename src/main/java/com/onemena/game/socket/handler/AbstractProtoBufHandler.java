@@ -28,10 +28,14 @@ public abstract class AbstractProtoBufHandler implements ServerAioHandler {
 
 	private final Log log = Logs.get();
 
-	private final static ConcurrentMap<String, Method> methodCache = new ConcurrentHashMap<>();
+	protected final ConcurrentMap<String, Method> methodCache = new ConcurrentHashMap<>();
 
-	static {
-		List<Class<?>> classes = ClassUtil.getAllClassBySubClass(MessageLite.class, true, "com.onemena.game.proto");
+	private final MessageLite prototype = Frame.getDefaultInstance();
+	
+	public abstract String getMessageClassPath();
+	
+	public void init(){
+		List<Class<?>> classes = ClassUtil.getAllClassBySubClass(MessageLite.class, true, getMessageClassPath());
 		classes.stream().filter(protoClass -> !Objects.equals(protoClass, Frame.class)).forEach(protoClass -> {
 			try {
 				methodCache.put(protoClass.getSimpleName(), protoClass.getMethod("parseFrom", ByteString.class));
@@ -40,9 +44,7 @@ public abstract class AbstractProtoBufHandler implements ServerAioHandler {
 			}
 		});
 	}
-
-	private final MessageLite prototype = Frame.getDefaultInstance();
-
+	
 	@Override
 	public Packet decode(ByteBuffer buffer, int limit, int position, int readableLength, ChannelContext channelContext) throws AioDecodeException {
 		CodedInputStream cis = CodedInputStream.newInstance(buffer.array(), buffer.position() + buffer.arrayOffset(), buffer.remaining());
@@ -94,7 +96,6 @@ public abstract class AbstractProtoBufHandler implements ServerAioHandler {
 		return null;
 	}
 
-	
 	public abstract void doHandler(MessageLite packet, ChannelContext channelContext) throws Exception;
 
 	@Override

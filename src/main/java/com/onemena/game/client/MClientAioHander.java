@@ -11,6 +11,9 @@ import com.onemena.game.socket.handler.MessagePacket;
 
 public class MClientAioHander extends AbstractProtoBufHandler implements ClientAioHandler {
 
+	public MClientAioHander() {
+		super.init();
+	}
 	@Override
 	public Packet heartbeatPacket() {
 		HeartBeatMessage backMsg = HeartBeatMessage.newBuilder().setMessage("ping").build();
@@ -20,6 +23,11 @@ public class MClientAioHander extends AbstractProtoBufHandler implements ClientA
 	@Override
 	public void doHandler(MessageLite packet, ChannelContext channelContext) throws Exception {
 		System.out.println("MClientAioHander : " + packet);
+	}
+
+	@Override
+	public String getMessageClassPath() {
+		return "com.onemena.game.proto";
 	}
 
 }

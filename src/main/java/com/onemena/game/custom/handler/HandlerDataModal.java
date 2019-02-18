@@ -7,7 +7,6 @@ import com.google.protobuf.MessageLite;
 /**
  * 处理器处理数据的封装
  *
- * @author nonpool
  * @version 1.0
  * @since 2018/3/16
  */

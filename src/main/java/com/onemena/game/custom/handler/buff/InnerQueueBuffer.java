@@ -9,7 +9,6 @@ import com.onemena.game.custom.handler.HandlerDataModal;
 /**
  * jvm内基于queue的缓存实现
  *
- * @author nonpool
  * @version 1.0
  * @since 2018/3/16
  */
