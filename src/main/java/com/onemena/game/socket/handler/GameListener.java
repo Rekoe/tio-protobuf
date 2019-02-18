@@ -7,7 +7,7 @@ import org.tio.core.ChannelContext;
 import org.tio.core.intf.Packet;
 import org.tio.server.intf.ServerAioListener;
 
-@IocBean
+@IocBean(name = "serverAioListener")
 public class GameListener implements ServerAioListener {
 
 	private Log log = Logs.get();

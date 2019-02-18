@@ -1,5 +1,6 @@
 package com.onemena.game.custom.handler.buff;
 
+import com.google.protobuf.MessageLite;
 import com.onemena.game.custom.handler.HandlerDataModal;
 
 /**
@@ -10,17 +11,17 @@ import com.onemena.game.custom.handler.HandlerDataModal;
  * @version 1.0
  * @since 2018/3/16
  */
-public interface MessageBuffer {
+public interface MessageBuffer <T extends MessageLite>{
 
     /**
      * 放入一个handlerData
      */
-    boolean offer(HandlerDataModal handlerDataModal);
+    boolean offer(HandlerDataModal<T> handlerDataModal);
 
     /**
      * 取出一个handlerData
      */
-    HandlerDataModal poll();
+    HandlerDataModal<T> poll();
 
 
     /**

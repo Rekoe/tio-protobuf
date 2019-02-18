@@ -11,25 +11,25 @@ import com.google.protobuf.MessageLite;
  * @version 1.0
  * @since 2018/3/16
  */
-public class HandlerDataModal {
+public class HandlerDataModal <T extends MessageLite>{
 
 	public HandlerDataModal() {
 	}
 
-	public HandlerDataModal(MessageLite messageLite, ChannelContext ctx) {
+	public HandlerDataModal(T messageLite, ChannelContext ctx) {
 		this.messageLite = messageLite;
 		this.ctx = ctx;
 	}
 
-	private MessageLite messageLite;
+	private T messageLite;
 
 	private ChannelContext ctx;
 
-	public MessageLite getMessageLite() {
+	public T getMessageLite() {
 		return messageLite;
 	}
 
-	public void setMessageLite(MessageLite messageLite) {
+	public void setMessageLite(T messageLite) {
 		this.messageLite = messageLite;
 	}
 

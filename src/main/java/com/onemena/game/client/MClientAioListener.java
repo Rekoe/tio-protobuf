@@ -13,12 +13,12 @@ public class MClientAioListener implements ClientAioListener {
 
 	@Override
 	public void onAfterDecoded(ChannelContext channelContext, Packet packet, int packetSize) throws Exception {
-
+		System.out.println("Client onAfterDecoded .... ");
 	}
 
 	@Override
 	public void onAfterReceivedBytes(ChannelContext channelContext, int receivedBytes) throws Exception {
-
+		System.out.println("Client onAfterReceivedBytes .....");
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class MClientAioListener implements ClientAioListener {
 
 	@Override
 	public void onAfterHandled(ChannelContext channelContext, Packet packet, long cost) throws Exception {
-
+		System.err.println("Client Handler :" + packet);
 	}
 
 	@Override

@@ -21,9 +21,6 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
-import com.onemena.game.custom.handler.HandlerDataModal;
-import com.onemena.game.custom.handler.buff.InnerQueueBuffer;
-import com.onemena.game.custom.handler.buff.MessageBuffer;
 import com.onemena.game.proto.Frame;
 import com.onemena.game.utils.ClassUtil;
 
@@ -60,7 +57,6 @@ public abstract class AbstractProtoBufHandler implements ServerAioHandler {
 				throw new RuntimeException("unknown Message type :" + type);
 			}
 			MessageLite messageLite = (MessageLite) method.invoke(null, body);
-			System.err.println("Handler Decode :" + messageLite);
 			return new MessagePacket(messageLite);
 		} catch (Exception e) {
 			log.error(e);
@@ -98,14 +94,12 @@ public abstract class AbstractProtoBufHandler implements ServerAioHandler {
 		return null;
 	}
 
-	private final MessageBuffer buffer = InnerQueueBuffer.getInstance();
 	
 	public abstract void doHandler(MessageLite packet, ChannelContext channelContext) throws Exception;
 
 	@Override
 	public void handler(Packet packet, ChannelContext channelContext) throws Exception {
 		MessageLite messageLite = ((MessagePacket) packet).getMessageLite();
-		buffer.offer(new HandlerDataModal(messageLite, channelContext));
 		doHandler(messageLite, channelContext);
 	}
 
