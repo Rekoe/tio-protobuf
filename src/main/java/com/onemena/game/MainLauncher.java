@@ -7,7 +7,9 @@ import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 
-@IocBean(create = "init", depose = "depose")
+import com.onemena.game.websocket.SocketServer;
+
+@IocBean(create = "init")
 public class MainLauncher {
 
 	@Inject
@@ -18,7 +20,11 @@ public class MainLauncher {
 	public void index() {
 	}
 
+	@Inject
+	private SocketServer socketServer;
+
 	public void init() {
+		socketServer.start();
 	}
 
 	public static void main(String[] args) throws Exception {

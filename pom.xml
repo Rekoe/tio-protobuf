@@ -81,8 +81,18 @@
 			<artifactId>freemarker</artifactId>
 		</dependency>
 		<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-core</artifactId>
+				<version>4.4.5</version>
+			</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.t-io</groupId>
+			<artifactId>tio-websocket-server</artifactId>
+			<version>3.1.4.v20180726-RELEASE</version>
 		</dependency>
 	</dependencies>
 	<repositories>
