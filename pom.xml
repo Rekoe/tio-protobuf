@@ -9,6 +9,7 @@
 	<properties>
 		<nutzboot.version>2.3.1-SNAPSHOT</nutzboot.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<version.commoms.pool2>2.4.2</version.commoms.pool2>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -22,6 +23,11 @@
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+			<version>${version.commoms.pool2}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.nutz</groupId>
 			<artifactId>nutzboot-starter-swagger</artifactId>

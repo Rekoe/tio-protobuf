@@ -22,7 +22,6 @@ public class MClientAioHander extends AbstractProtoBufHandler implements ClientA
 
 	@Override
 	public void doHandler(MessageLite packet, ChannelContext channelContext) throws Exception {
-		System.out.println("MClientAioHander : " + packet);
 	}
 
 	@Override
