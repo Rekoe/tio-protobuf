@@ -1,0 +1,45 @@
+syntax = "proto3";
+option java_package = "com.onemena.game.proto";
+option java_multiple_files = true;
+
+message Frame {
+    string messageType = 2;
+
+    bytes payload = 15;
+}
+
+message LoginMessage {
+    string name = 1;
+    
+    string password = 2;
+}
+
+message RegisterRoutMessage{
+	int32 serverId = 1;
+}
+message HeartBeatMessage {
+    string message=1;
+}
+
+//公共头
+message CommonProtocol {
+    message CommonHeader {
+		uint32 CommandId = 1;  	
+		uint32 SeqId = 2;
+		uint32 Version = 3;
+		string FromUid = 4;		
+	}
+	
+	CommonHeader CommHeader = 1;
+	
+	message LiveCommonHeader {
+		uint32 LiveType = 1;       
+		uint32 LiveId = 2;
+		uint32 DemandType = 3;
+		uint32 DemandId = 4;
+		uint32 ToDemandId= 5;
+		uint32 ToDemandType= 6;
+	}
+	LiveCommonHeader LiveHeader = 2;
+	bytes Data = 3;
+}
