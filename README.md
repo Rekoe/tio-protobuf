@@ -49,4 +49,4 @@ mvn clean package nutzboot:shade
 
 ## 源自Netty+protobuf3
 
-https://github.com/nonpool/typedispatchdemo
+https://github.com/nonpool/typedispatchdemos
