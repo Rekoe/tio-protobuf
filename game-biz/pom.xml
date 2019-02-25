@@ -13,7 +13,6 @@
 		<dependency>
 			<groupId>org.nutz</groupId>
 			<artifactId>nutz</artifactId>
-			<version>${nutz.version}</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

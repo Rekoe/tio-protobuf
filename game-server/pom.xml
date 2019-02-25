@@ -8,7 +8,6 @@
 	<packaging>jar</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<nutz.version>1.r.68-SNAPSHOT</nutz.version>
 		<commons-lang.version>3.5</commons-lang.version>
 		<nutzboot.version>2.3.1-SNAPSHOT</nutzboot.version>
 		<version.commoms.pool2>2.4.2</version.commoms.pool2>
@@ -18,10 +17,9 @@
 			<groupId>org.nutz</groupId>
 			<artifactId>nutzboot-starter-swagger</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.onemena</groupId>
-			<artifactId>game-biz</artifactId>
+			<artifactId>game-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -56,17 +54,8 @@
 			<version>4.4.5</version>
 		</dependency>
 		<dependency>
-			<groupId>org.t-io</groupId>
-			<artifactId>tio-websocket-server</artifactId>
-			<version>3.1.4.v20180726-RELEASE</version>
-		</dependency>
-		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.nutz</groupId>
-			<artifactId>nutzboot-starter-tio-websocket</artifactId>
 		</dependency>
 	</dependencies>
 	<repositories>

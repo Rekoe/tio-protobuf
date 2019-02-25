@@ -9,6 +9,9 @@
 	</parent>
 	<artifactId>game-core</artifactId>
 	<build />
+	<properties>
+		<nutzboot.version>2.3.1-SNAPSHOT</nutzboot.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.onemena</groupId>
@@ -32,10 +35,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.nutz</groupId>
-			<artifactId>nutz-plugins-websocket</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.nutz</groupId>
 			<artifactId>nutzboot-starter-redis</artifactId>
 		</dependency>
 		<dependency>
@@ -43,15 +42,12 @@
 			<artifactId>nutzboot-starter-shiro</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>javax.websocket</groupId>
-			<artifactId>javax.websocket-api</artifactId>
-			<version>1.1</version>
-			<scope>provided</scope>
+			<groupId>org.nutz</groupId>
+			<artifactId>nutzboot-starter-tio</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.xml.ws</groupId>
-			<artifactId>jaxws-rt</artifactId>
-			<version>2.1.4</version>
+			<groupId>org.nutz</groupId>
+			<artifactId>nutzboot-starter-tio-websocket</artifactId>
 		</dependency>
 	</dependencies>
 	<pluginRepositories>
