@@ -1,5 +1,7 @@
 package com.onemena.game.core.connection;
 
+import org.apache.commons.lang3.BooleanUtils;
+import org.nutz.lang.Lang;
 import org.tio.core.ChannelContext;
 
 public class IMConnection {
@@ -9,15 +11,15 @@ public class IMConnection {
 	public static final String ATTR_CONN_ACCOUNT = "connection_account";
 	public static final String ATTR_CONN_SERVER = "connection_server";
 
-	private long mId;
-	
+	private int mId;
+
 	private volatile boolean isClosed = false;
-	
+
 	private ChannelContext mContext;
-	
+
 	private ConnectionCloseListener closeListener;
 
-	public IMConnection(Long id, ChannelContext ctx) {
+	public IMConnection(int id, ChannelContext ctx) {
 		mId = id;
 		mContext = ctx;
 	}
@@ -46,7 +48,7 @@ public class IMConnection {
 		return (String) mContext.getAttribute(IMConnection.ATTR_CONN_SERVER);
 	}
 
-	public long getId() {
+	public int getId() {
 		return mId;
 	}
 
@@ -68,7 +70,14 @@ public class IMConnection {
 	}
 
 	public boolean isActive() {
-		return mContext != null && mContext.isVirtual;
+		if (Lang.isEmpty(mContext)) {
+			return false;
+		}
+		Object connected = mContext.getAttribute("Connected");
+		if (Lang.isEmpty(connected)) {
+			return false;
+		}
+		return BooleanUtils.toBoolean(connected.toString());
 	}
 
 	public boolean isClosed() {

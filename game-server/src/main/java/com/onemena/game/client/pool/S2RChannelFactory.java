@@ -1,5 +1,7 @@
 package com.onemena.game.client.pool;
 
+import java.io.IOException;
+
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.nutz.log.Log;
@@ -28,25 +30,32 @@ public class S2RChannelFactory {
 		public S2RChannelFactory s2RHolder = new S2RChannelFactory("127.0.0.1", 9420, 1, 20, 10);
 	}
 
-	public ClientChannelContext getChannel() {
+	public ClientChannelContext getChannel() throws IOException {
+		ClientChannelContext channel = null;
 		try {
-			return pool.borrowObject();
+			channel = pool.borrowObject();
+		} catch (IOException e) {
+			throw e;
 		} catch (Exception e) {
-			log.error(e);
+			throw new RuntimeException("Unable to borrow buffer from pool" + e.toString());
+		} finally {
+			try {
+				if (null != channel) {
+					pool.returnObject(channel);
+				}
+			} catch (Exception e) {
+				log.error(e);
+			}
 		}
-		return null;
-	}
-
-	public void returnChannel(ClientChannelContext channel) {
-		pool.returnObject(channel);
+		return channel;
 	}
 
 	public static final S2RChannelFactory getS2RChannelInstance() {
 		return new S2RChannelFactoryHolder().s2RHolder;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		S2RChannelFactory.getS2RChannelInstance().getChannel();
-		
+
 	}
 }
